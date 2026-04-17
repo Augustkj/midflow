@@ -1,0 +1,18 @@
+{
+    "include": ["src/**/*"],
+    "compilerOptions": {
+        "declaration": true,
+        "emitDeclarationOnly": false,
+        "ignoreDeprecations": "6.0",
+        "baseUrl": ".",
+        // Extra safety for array and object lookups, but may have false positives.
+        "noUncheckedIndexedAccess": true,
+        "paths": {
+            "@types": ["src/types"],
+            "@middleware": ["src/middleware"],
+            "@adapters": ["src/adapters"]
+        },
+        "lib": ["ESNext", "DOM", "DOM.Iterable"]
+    },
+    
+}
