@@ -29,7 +29,7 @@ const client = createClient({
   timeout: 5000
 })
 
-const ctx = await client.client({
+const ctx = await client.request({
   url: 'https://httpbin.org/get',
   method: 'GET'
 })

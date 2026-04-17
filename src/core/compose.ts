@@ -1,11 +1,11 @@
 /**
  * Compose middleware chain (koa style)
  */
-import { Context, Midderware } from "@types";
+import { Context, Middleware } from "@types";
 
-export function compose(...midderwares: Midderware[]) {
-    for (const mw of midderwares) {
-        if (typeof mw !== 'function') throw new Error('midderware must be a function')
+export function compose(...middlewares: Middleware[]) {
+    for (const mw of middlewares) {
+        if (typeof mw !== 'function') throw new Error('Middleware must be a function')
     }
     return function dispatch(ctx: Context) {
         
@@ -17,7 +17,7 @@ export function compose(...midderwares: Midderware[]) {
             
             index = idx
 
-            const mw = midderwares[idx]
+            const mw = middlewares[idx]
 
             if (!mw) return ctx
 

@@ -1,11 +1,11 @@
 import { Context, Adapter } from "@types";
 import { getSignal } from "src/core/runtime";
 
-type FetchAdapterOprions<T = unknown> = {
-    pareser?: (res: Response) => Promise<T> | Response | Promise<string> | Promise<Blob>
+type FetchAdapterOptions<T = unknown> = {
+    parser?: (res: Response) => Promise<T> | Response | Promise<string> | Promise<Blob>
 }
 
-export const createFetchAdapter = (options: FetchAdapterOprions = { pareser: parseRaw }) => async (ctx: Context) => {
+export const createFetchAdapter = (options: FetchAdapterOptions = { parser: parseRaw }) => async (ctx: Context) => {
     const { headers, params: { url, ...requestParams } } = ctx
     const signal = getSignal(ctx)
     try {
@@ -15,7 +15,7 @@ export const createFetchAdapter = (options: FetchAdapterOprions = { pareser: par
             throw new Error(data)
         }
         ctx.response = res
-        ctx.data = await options.pareser?.(res)
+        ctx.data = await options.parser?.(res)
     } catch (error) {
         ctx.error = error as Error
     }

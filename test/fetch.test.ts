@@ -13,7 +13,7 @@ async function require() {
             method: 'POST'
         }
     }
-    const fetchAdapter = createFetchAdapter({ pareser: parseJson })
+    const fetchAdapter = createFetchAdapter({ parser: parseJson })
     await fetchAdapter(ctx)
     console.log(ctx)
 }

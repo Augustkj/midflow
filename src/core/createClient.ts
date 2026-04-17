@@ -1,4 +1,4 @@
-import { Context, Midderware, Adapter, ClientParams } from '@types'
+import { Context, Middleware, Adapter, ClientParams } from '@types'
 import { transportMw, timeoutMw } from '@middleware'
 import { createFetchAdapter } from '@adapters'
 import { compose } from './compose'
@@ -9,11 +9,11 @@ type ClientOptions = {
 }
 
 export function createClient(options?: ClientOptions) {
-    const baseMiddlewares: Midderware[] = []
+    const baseMiddlewares: Middleware[] = []
     let baseAdapter: Adapter = createFetchAdapter()
 
     const api = {
-        use(mw: Midderware) {
+        use(mw: Middleware) {
             baseMiddlewares.push(mw)
             return api
         },
@@ -23,7 +23,7 @@ export function createClient(options?: ClientOptions) {
             return api
         },
 
-        client(clientOptions: ClientParams) {
+        request(clientOptions: ClientParams) {
             const { method = 'POST', ...cOptions } = clientOptions
             return run(method, cOptions)
         }

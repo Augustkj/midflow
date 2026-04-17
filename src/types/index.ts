@@ -1,4 +1,4 @@
-export type Midderware<T extends Context = Context> = (ctx: T, next: Next) => Promise<void> | void
+export type Middleware<T extends Context = Context> = (ctx: T, next: Next) => Promise<void> | void
 
 export type ClientParams = Omit<RequestInit, 'headers'> & { url: string }
 
