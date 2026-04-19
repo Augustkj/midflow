@@ -1,2 +1,5 @@
 node_modules
 .vscode
+dist
+*.tgz
+*.log

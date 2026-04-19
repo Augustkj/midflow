@@ -1,15 +1,17 @@
 {
   "name": "midflow",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A middleware-based HTTP client with pluggable adapters.",
+  "main": "./dist/index.cs",
+  "module": "./dist/index.mjs",
+  "types": "/dist/index.d.ts",
   "scripts": {
     "test": "tsx test/createClient.test.ts",
-    "build": "tsup src/index.ts --format esm,cjs --dts"
+    "build": "tsup"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Augustkj",
+  "license": "MIT",
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "tsup": "^8.5.1",
@@ -21,5 +23,10 @@
     "./middleware": "./dist/middleware/index.js",
     "./adapters": "./dist/adapters/index.js",
     "./runtime": "./dist/runtime.js"
-  }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
 }

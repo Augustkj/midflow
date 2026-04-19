@@ -1,5 +1,9 @@
 # midflow
 
+**npm badge**
+
+![npm](https://img.shields.io/npm/v/midflow)
+
 一个基于 **compose 中间件模型** 的 HTTP 请求库，支持 **可插拔 transport adapter**。
 
 midflow 将请求流程拆分为 **middleware → transport → adapter** 三层结构，使请求逻辑更加清晰、可扩展。
